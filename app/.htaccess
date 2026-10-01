@@ -1,0 +1,26 @@
+# ドパにゃん！ 漢字編 — Apache / LiteSpeed 用の設定（FTPでそのまま置けます）
+DirectoryIndex index.html
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html .js .css .svg .txt
+
+# ES Modules とフォントを正しい種類で返す（古いサーバー向け）
+AddType text/javascript .js .mjs
+AddType text/css .css
+AddType font/woff2 .woff2
+AddType image/svg+xml .svg
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript image/svg+xml
+</IfModule>
+
+<IfModule mod_headers.c>
+  # 更新をすぐ反映させるため、HTML・JS・CSS は毎回確認させる
+  <FilesMatch "\.(html|js|css)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  <FilesMatch "\.(woff2|png|svg)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  Header set X-Content-Type-Options "nosniff"
+</IfModule>
+AddType application/manifest+json .webmanifest
