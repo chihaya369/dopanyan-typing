@@ -1,0 +1,40 @@
+ドパにゃん！ 脳汁タイピング — クレジット・ライセンス
+
+■ 企画・原案
+ちはや（chihaya.love）  X: https://x.com/chihaya_369
+
+■ ソースコード
+MIT License（元版「ドパドリル」 Copyright (c) 2026 gear_machine / grmchn）
+本作は元版の非営利・非公式の改造版です。元版の LICENSE の条件（MIT の著作権表示の保持、
+キャラクター・名称の二次創作は非営利に限る、非公式であることの表示）に従っています。
+営利利用には元版作者の事前許可が必要です。  元版: https://github.com/grmchn/dopa-drill
+
+■ ことばデータ（data/typing.js の words）  CC BY-SA 4.0
+KANJIDIC2 / JMdict © Electronic Dictionary Research and Development Group (EDRDG), CC BY-SA 4.0
+JmdictFurigana (Doublevil), CC BY-SA 4.0 / diglabo-kanji-data (make1s), CC BY-SA 4.0
+
+■ 文（data/typing.js の sents）
+ねこ文・にちじょう文・意味の説明：本作のための書き下ろし。
+ことわざ・四字熟語・俳句（芭蕉・蕪村・一茶・子規）：著作権の保護期間外。
+
+■ 曲（すべて Web Audio で合成、歌詞は不使用）
+ねこふんじゃった（Der Flohwalzer）、きらきら星、ちょうちょう、かえるの合唱、メリーさんのひつじ、
+ロンドン橋、アルプス一万尺（Yankee Doodle）、草競馬（S. フォスター）、聖者の行進、
+よろこびの歌（ベートーヴェン）、トルコ行進曲（モーツァルト）— いずれも旋律は保護期間外。
+
+■ フォント（fonts/）  SIL Open Font License 1.1 — Dela Gothic One / Zen Maru Gothic
+
+■ 出典リンク
+- EDRDG ライセンス: https://www.edrdg.org/edrdg/licence.html
+- JMdict: https://www.edrdg.org/wiki/index.php/JMdict-EDICT_Dictionary_Project
+- KANJIDIC: https://www.edrdg.org/wiki/index.php/KANJIDIC_Project
+  This package uses the JMdict/EDICT and KANJIDIC dictionary files. These files are the property of the
+  Electronic Dictionary Research and Development Group, and are used in conformance with the Group's licence.
+- CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/deed.ja
+  data/ 内の漢字・ことばデータ（改変物）は CC BY-SA 4.0 で提供します。
+- JmdictFurigana: https://github.com/Doublevil/JmdictFurigana
+- diglabo-kanji-data: https://github.com/make1s/diglabo-kanji-data
+- 文部科学省「音訓の小・中・高等学校段階別割り振り表（平成29年3月）」: https://www.mext.go.jp/a_menu/shotou/new-cs/1385768.htm
+
+■ 元版ライセンスの全文
+LICENSE-dopa-drill.txt（MIT License と、キャラクター・名称に関する例外規定）を参照してください。

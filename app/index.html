@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="theme-color" content="#3b6bff">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ドパにゃん！ 脳汁タイピング">
+  <meta property="og:title" content="ドパにゃん！ 脳汁タイピング — キーふんじゃった！">
+  <meta property="og:description" content="打つたびにねこがキーを踏んで「ねこふんじゃった」が鳴る。速く打つほど脳汁ドバドバ！ ローマ字OK・無料。">
+  <meta property="og:image" content="https://chihaya.love/dopa/typing/ogp.png">
+  <meta property="og:url" content="https://chihaya.love/dopa/typing/">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@chihaya_369">
+  <meta name="twitter:image" content="https://chihaya.love/dopa/typing/ogp.png">
+  <script>window.SITE_URL = "https://chihaya.love/dopa/typing/";</script>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="color-scheme" content="light">
+  <meta name="application-name" content="ドパにゃん 脳汁タイピング">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="脳汁タイピング">
+  <link rel="apple-touch-icon" href="icon.png">
+  <meta name="description" content="打つたびに、ねこがキーを踏んで「ねこふんじゃった」が鳴る。脳汁ドバドバのタイピング練習。ローマ字でOK。">
+  <title>ドパにゃん！ 脳汁タイピング</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body class="lv0">
+  <div id="paper" aria-hidden="true"></div>
+  <div id="rays-fallback" aria-hidden="true"></div>
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <canvas id="fx-back" aria-hidden="true"></canvas>
+
+  <main id="app">
+    <!-- Title -->
+    <section id="screen-title" class="screen is-active" aria-labelledby="logo">
+      <button type="button" class="icon-btn settings-btn" id="open-settings" aria-label="せってい" aria-haspopup="dialog">
+        <svg viewBox="-16 -16 32 32" aria-hidden="true"><circle r="10.6" fill="none" stroke="#1b1d4d" stroke-width="9" stroke-dasharray="4.2 4.12"/><circle r="10.6" fill="#ffd23f" stroke="#1b1d4d" stroke-width="2.4"/><circle r="4.4" fill="#fff" stroke="#1b1d4d" stroke-width="2.4"/></svg>
+      </button>
+      <button type="button" class="icon-btn settings-btn help-btn" id="open-guide" aria-label="あそびかた" aria-haspopup="dialog">
+        <svg viewBox="-16 -16 32 32" aria-hidden="true"><path d="M-6 -4 C-6 -7 -3 -9 0 -9 C3 -9 6 -7 6 -4 C6 -1 0 0 0 3 M0 9v.01" fill="none" stroke="#1b1d4d" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <h1 id="logo" class="logo logo-cat" aria-label="ドパにゃん！ 脳汁タイピング">
+        <svg class="logo-burst" viewBox="-100 -100 200 200" aria-hidden="true"><path id="logo-burst-path" fill="none"/><path id="logo-burst-inner" fill="none"/></svg>
+        <svg class="lc-cloud" viewBox="0 0 400 260" preserveAspectRatio="none" aria-hidden="true"><path d="M60 170 C10 170 10 110 55 105 C45 55 105 35 135 70 C150 20 225 15 245 60 C275 25 345 40 340 95 C395 100 395 175 345 180 C350 235 270 245 245 215 C215 250 150 250 130 215 C95 240 40 225 60 170Z" fill="#fff4fa" stroke="#1b1d4d" stroke-width="6" stroke-linejoin="round"/></svg>
+        <img class="lc-peek lc-gin" src="face-gin.svg" alt="" aria-hidden="true">
+        <img class="lc-peek lc-sumi" src="face-sumi.svg" alt="" aria-hidden="true">
+        <span class="lc-top" aria-hidden="true"><i class="ear">ド</i><i>パ</i><i class="ear">に</i><i>ゃ</i><i class="ear">ん</i><i class="paw-bang"><svg viewBox="-12 -30 24 44"><rect x="-6" y="-28" width="12" height="26" rx="6" fill="#ff7ab6" stroke="#1b1d4d" stroke-width="3"/><g fill="#ff9ccc" stroke="#1b1d4d" stroke-width="2.4"><ellipse cx="0" cy="8" rx="7" ry="5.5"/><circle cx="-7" cy="1" r="2.8"/><circle cx="-2.5" cy="-2.5" r="2.8"/><circle cx="2.5" cy="-2.5" r="2.8"/><circle cx="7" cy="1" r="2.8"/></g></svg></i></span>
+        <span class="lc-drop" aria-hidden="true"><ruby>脳汁<rt>のうじる</rt></ruby></span>
+        <span class="lc-sub" aria-hidden="true">タイピング</span>
+        <span class="logo-catch" aria-hidden="true">キーふんじゃった！</span>
+        <span class="logo-bits lc-bits" aria-hidden="true"><b style="--x:-47%;--y:8%;--r:-18deg" class="bit-paw"></b><b style="--x:46%;--y:4%;--r:14deg" class="bit-fish"></b><b style="--x:-40%;--y:96%;--r:10deg" class="bit-yarn"></b><b style="--x:42%;--y:94%;--r:-12deg" class="bit-neko"></b></span>
+      </h1>
+      <div class="title-stage" id="title-stage" aria-hidden="true"></div>
+      <p class="hello" id="hello" hidden></p>
+      <div class="modes" id="modes">
+        <button type="button" class="mode-chip" id="mode-chip" hidden aria-label="にゅうりょくの しかたを かえる">⌨ ローマ字</button>
+        <button type="button" id="start" class="big-btn level-btn">じぶんレベル<small id="level-sub">はじめは じつりょくチェック</small></button>
+        <button type="button" id="start-challenge" class="big-btn challenge-btn">⚡ 90びょう チャレンジ<small>いつでも あそべる エクストラ</small></button>
+        <button type="button" id="start-review" class="sub-btn review-btn review-main" hidden>ふくしゅう <b id="review-count">0</b></button>
+        <div class="grades" role="group" aria-label="コース">
+          <button type="button" data-grade="1"><small>コース</small>せいおん</button><button type="button" data-grade="2"><small>コース</small>だくおん</button><button type="button" data-grade="3"><small>コース</small>ことば</button>
+          <button type="button" data-grade="4"><small>コース</small>みじかい文</button><button type="button" data-grade="5"><small>コース</small>ながい文</button><button type="button" data-grade="6"><small>コース</small>ミックス</button>
+        </div>
+        <div class="mode-row">
+          <button type="button" id="open-tree" class="sub-btn">スキルツリー <b id="tree-badge"></b></button>
+          <button type="button" id="open-trophy" class="sub-btn">トロフィー <b id="trophy-badge"></b></button>
+          <button type="button" id="open-collect" class="sub-btn">コレクション <b id="collect-badge"></b></button>
+          <b id="zukan-badge" hidden></b><button type="button" id="open-zukan" hidden></button>
+        </div>
+      </div>
+      <section class="quest-card" id="quests" aria-labelledby="quest-title">
+        <div class="quest-head"><h2 id="quest-title">きょうの クエスト</h2><span class="quest-reward" id="quest-reward"></span></div>
+        <ol class="quest-list" id="quest-list"></ol>
+      </section>
+      <section class="cal-card" id="calendar" aria-labelledby="cal-title">
+        <div class="cal-head">
+          <button type="button" class="cal-nav" id="cal-prev" aria-label="前の月">‹</button>
+          <h2 id="cal-title">カレンダー</h2>
+          <button type="button" class="cal-nav" id="cal-next" aria-label="次の月">›</button>
+        </div>
+        <div class="cal-badges" id="cal-badges"></div>
+        <div class="cal-week" aria-hidden="true"><span>日</span><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span></div>
+        <div class="cal-grid" id="cal-grid" role="grid"></div>
+      </section>
+      <p class="hint">キーボードでも スマホでも ローマ字で あそべるよ</p>
+      <p class="ura-chip" id="ura-chip" hidden>🐾 うらわざ モード ON 🐾</p>
+      <p class="credit">企画・原案：<button type="button" class="chihaya" id="chihaya" aria-label="ひみつの コマンドを ひらく">🐾 ちはや ✦</button>（chihaya.love）<a class="xlink" href="https://x.com/chihaya_369" target="_blank" rel="noopener" aria-label="ちはやのX">𝕏 @chihaya_369</a><br>ドパドリル（grmchn）の非公式改造版です。ことばデータ：KANJIDIC2・JMdict © EDRDG（<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja" target="_blank" rel="noopener">CC BY-SA 4.0</a>）<br>This site uses the JMdict/EDICT and KANJIDIC dictionary files, the property of the <a href="https://www.edrdg.org/" target="_blank" rel="noopener">EDRDG</a>, used in conformance with the Group's <a href="https://www.edrdg.org/edrdg/licence.html" target="_blank" rel="noopener">licence</a>. <a href="LICENSE.txt" target="_blank">ライセンス</a></p>
+    </section>
+
+    <!-- Skill tree -->
+    <section id="screen-tree" class="screen" aria-labelledby="tree-title">
+      <header class="tree-head">
+        <button type="button" class="icon-btn" id="tree-back" aria-label="もどる">‹</button>
+        <h2 id="tree-title">スキルツリー</h2>
+        <span class="tree-count" id="tree-count"></span>
+      </header>
+      <p class="tree-stars" id="tree-stars"></p>
+      <p class="tree-note">タップで れんしゅう（マスターは ☆の じょうけん）　ながおしで けす</p>
+      <div class="tree-scroll" id="tree-scroll"><div class="tree-lanes" id="tree-lanes" aria-hidden="true"></div><div class="tree" id="tree"><svg class="tree-links" id="tree-links" aria-hidden="true"></svg></div></div>
+      <p class="toast" id="toast" role="status" hidden></p>
+    </section>
+
+    <!-- Trophies (id036) -->
+    <section id="screen-trophy" class="screen" aria-labelledby="trophy-title">
+      <header class="tree-head">
+        <button type="button" class="icon-btn" id="trophy-back" aria-label="もどる">‹</button>
+        <h2 id="trophy-title">トロフィー</h2>
+        <span class="tree-count" id="trophy-count"></span>
+      </header>
+      <div class="tr-filter" role="group" aria-label="しぼりこみ">
+        <button type="button" data-f="all" aria-pressed="true">ぜんぶ</button><button type="button" data-f="got" aria-pressed="false">ゲットした</button><button type="button" data-f="next" aria-pressed="false">まだ</button><button type="button" data-f="soon" aria-pressed="false">もうすぐ</button>
+      </div>
+      <div class="tr-scroll" id="tr-scroll"><div class="tr-list" id="tr-list"></div></div>
+    </section>
+
+    <!-- Collection (id041) -->
+    <section id="screen-collect" class="screen" aria-labelledby="collect-title">
+      <header class="tree-head">
+        <button type="button" class="icon-btn" id="collect-back" aria-label="もどる">‹</button>
+        <h2 id="collect-title">コレクション</h2>
+        <span class="tree-count" id="collect-count"></span>
+      </header>
+      <div class="co-preview" id="co-preview" aria-hidden="true"><div class="stamp co-mark" id="co-mark"></div><p class="co-now" id="co-now"></p></div>
+      <div class="co-tabs" id="co-tabs" role="group" aria-label="しゅるい"></div>
+      <div class="co-scroll" id="co-scroll"><p class="co-note" id="co-note"></p><div class="co-grid" id="co-grid"></div></div>
+    </section>
+
+    <!-- Kanji zukan -->
+    <section id="screen-zukan" class="screen" aria-labelledby="zukan-title">
+      <header class="tree-head">
+        <button type="button" class="icon-btn" id="zukan-back" aria-label="もどる">‹</button>
+        <h2 id="zukan-title">かんじずかん</h2>
+        <span class="tree-count" id="zukan-count"></span>
+      </header>
+      <div class="tr-filter zk-tabs" id="zk-tabs" role="group" aria-label="がくねん"></div>
+      <div class="zk-detail" id="zk-detail" aria-live="polite"><p class="zk-empty">かんじを タップすると よみが みられるよ</p></div>
+      <div class="tr-scroll zk-scroll"><div class="zk-grid" id="zk-grid"></div></div>
+    </section>
+
+    <!-- Play -->
+    <section id="screen-play" class="screen" aria-label="プレイ画面">
+      <header class="hud">
+        <div class="pips" id="pips" aria-hidden="true"></div>
+        <div class="clock" aria-live="off"><span id="clock-label">目標 2:40</span><b id="clock">0:00</b></div>
+        <span class="demo-tag" aria-hidden="true">DEMO</span>
+        <button type="button" class="quit-btn" id="quit" aria-label="やめる">やめる</button>
+        <button type="button" class="icon-btn" id="mute" aria-label="音を消す" aria-pressed="false">♪</button>
+      </header>
+      <div class="hud2">
+        <div class="tally"><span>正解 <b id="ok">0</b><small id="ok-total">/10</small></span><span class="ng">おしい <b id="ng">0</b></span><span class="kps">打/秒 <b id="kps">0.0</b></span><b id="pn" hidden>0</b></div>
+        <div class="combo" id="combo-box" aria-hidden="true"><b id="combo">0</b><small>コンボ</small><span class="combo-mult" id="combo-mult"></span><i class="combo-track"><i id="combo-bar"></i></i></div>
+        <div class="mata" id="mata" hidden aria-hidden="true"><span>🌿 マタタビ</span><i><b id="mata-bar"></b></i></div>
+        <div class="dopa" id="dopa-box"><small>ドパ</small><b id="dopa">0</b></div>
+      </div>
+      <div class="stage" id="stage" aria-hidden="true">
+        <svg class="bunting" viewBox="0 0 400 40" preserveAspectRatio="none"><path d="M0 4 Q200 34 400 4" fill="none" stroke="#1b1d4d" stroke-width="2.5"/><g id="flags"></g></svg>
+        <div class="spot spot-l"></div><div class="spot spot-r"></div>
+        <svg class="ground" viewBox="0 0 400 20" preserveAspectRatio="none"><path d="M4 12 Q60 6 120 11 T240 10 T396 12" fill="none" stroke="#1b1d4d" stroke-width="3" stroke-linecap="round"/></svg>
+      </div>
+      <section class="card" id="card" aria-labelledby="qtitle">
+        <div class="marquee" aria-hidden="true"></div>
+        <div class="card-top"><span class="chip" id="qtitle">よみを かこう</span><span class="qno" id="qno">第1問</span><button type="button" class="pass-btn" id="pass" aria-label="わからないので パス">パス</button></div>
+        <div class="sheet-wrap"><div class="sheet" id="sheet" role="group" aria-label="もんだい"></div></div>
+        <p class="step-label" id="step-label" aria-live="polite">よみ</p>
+        <div class="stamp" id="stamp" aria-hidden="true"></div>
+        <div class="reach-tag" id="reach-tag" aria-hidden="true">あと1もじ</div>
+      </section>
+      <div class="pad kana-pad" id="pad" role="group" aria-label="かなの入力">
+        <button type="button" data-slot="0"></button><button type="button" data-slot="1"></button><button type="button" data-slot="2"></button><button type="button" data-slot="3"></button><button type="button" data-slot="4"></button><button type="button" data-slot="5"></button><button type="button" data-slot="6"></button><button type="button" data-slot="7"></button><button type="button" data-slot="8"></button><button type="button" data-slot="9"></button><button type="button" data-slot="10"></button><button type="button" data-slot="11"></button>
+      </div>
+    </section>
+
+    <!-- Basic result -->
+    <section id="screen-result" class="screen" aria-labelledby="result-title">
+      <div class="result-card">
+        <p class="chip" id="result-title">基本クリア</p>
+        <p class="score"><b id="r-score">100</b><span>点</span></p>
+        <dl class="stats">
+          <div><dt>正解</dt><dd id="r-ok">10問</dd></div>
+          <div><dt>おしい</dt><dd id="r-ng">0回</dd></div>
+          <dd id="r-pn" hidden></dd>
+          <div><dt>初回正解率</dt><dd id="r-rate">100%</dd></div>
+          <div><dt>タイム</dt><dd id="r-time">1:23</dd></div>
+        </dl>
+        <div class="rank-box" id="r-rank"></div>
+        <p class="dopa-final"><small>ドパ</small><b id="r-dopa">0</b></p>
+        <div class="passed-box" id="r-passed" hidden></div>
+        <div class="growth-box" id="r-growth"></div>
+        <p class="unlock" id="r-unlock"></p>
+        <div class="skill-news" id="r-skills"></div>
+        <div class="quest-mini" id="r-quests"></div>
+        <div class="actions">
+          <button type="button" id="go-share" class="big-btn share-cta">✨ シェア・がぞうを ほぞん</button>
+          <button type="button" id="go-extra" class="big-btn">エクストラへ <small>90秒</small></button>
+          <button type="button" id="go-review" class="sub-btn review-btn" hidden>まちがえた問題を やりなおす</button>
+          <button type="button" id="go-tree" class="sub-btn" hidden>スキルツリーを見る</button>
+          <button type="button" id="go-again" class="sub-btn" hidden>もう一度</button>
+          <button type="button" id="go-title" class="sub-btn">おわる</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final result -->
+    <section id="screen-final" class="screen" aria-labelledby="final-title">
+      <div class="result-card">
+        <p class="chip" id="final-title">エクストラ終了</p>
+        <p class="score"><b id="f-score">100</b><span>点</span></p>
+        <p class="breakdown" id="f-break">基本 100 ＋ エクストラ 0</p>
+        <dl class="stats">
+          <div><dt>エクストラ正解</dt><dd id="f-ok">0問</dd></div>
+          <div><dt>エクストラのおしい</dt><dd id="f-ng">0回</dd></div>
+          <dd id="f-pn" hidden></dd>
+          <div><dt>基本のおしい</dt><dd id="f-bng">0回</dd></div>
+          <div><dt>基本タイム</dt><dd id="f-time">0:00</dd></div>
+        </dl>
+        <div class="rank-box" id="f-rank"></div>
+        <p class="dopa-final"><small>ドパ</small><b id="f-dopa">0</b></p>
+        <div class="skill-news" id="f-skills"></div>
+        <div class="quest-mini" id="f-quests"></div>
+        <div class="actions">
+          <button type="button" id="f-review" class="sub-btn review-btn" hidden>まちがえた問題を やりなおす</button>
+          <button type="button" id="f-tree" class="sub-btn" hidden>スキルツリーを見る</button>
+          <button type="button" id="f-share" class="big-btn share-cta">✨ シェア・がぞうを ほぞん</button>
+          <button type="button" id="again" class="big-btn">おわる</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="modal namebox" id="namebox" role="dialog" aria-modal="true" aria-labelledby="name-title" hidden>
+    <div class="modal-card name-card">
+      <p class="name-cats" aria-hidden="true"><img src="face-gin.svg" alt=""><img src="face-sumi.svg" alt=""></p>
+      <h2 id="name-title" class="name-title">なまえを おしえてね！</h2>
+      <p class="name-sub">けっかの がぞうに のるよ（あとで かえられるよ）</p>
+      <input id="name-input" class="name-input" type="text" maxlength="10" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="れい：ちはや" aria-label="なまえ">
+      <div class="name-actions"><button type="button" class="sub-btn" id="name-skip">あとで</button><button type="button" class="big-btn" id="name-ok">きめた！</button></div>
+    </div>
+  </div>
+  <div id="goo" aria-hidden="true"></div>
+  <div id="demo-cap" aria-hidden="true"></div>
+  <div id="wipe" aria-hidden="true"><i></i></div>
+  <div id="splash" aria-hidden="true"><div class="sp-cats"><img src="face-gin.svg" alt=""><img src="face-sumi.svg" alt=""></div><p class="sp-logo">ドパにゃん！</p><p class="sp-sub">脳汁タイピング</p><p class="sp-load"><i></i><i></i><i></i></p></div>
+  <div class="modal share" id="share" role="dialog" aria-modal="true" aria-label="シェア" hidden>
+    <div class="modal-card share-card">
+      <button type="button" class="icon-btn share-x" id="share-close" aria-label="とじる">×</button>
+      <h2 class="share-title">シェアしよう！</h2>
+      <div class="share-preview"><img id="share-img" alt="けっかの がぞう" width="540" height="675"><p class="share-load" id="share-load">つくっているよ…🐾</p></div>
+      <div class="share-fmt" role="group" aria-label="がぞうの かたち"><button type="button" data-fmt="portrait" aria-pressed="true">たて 4:5</button><button type="button" data-fmt="wide" aria-pressed="false">よこ 16:9</button></div>
+      <button type="button" data-sh="native" class="sh-send" id="share-send">📤 がぞうと ぶんしょうを おくる<small>X・LINE・Instagramなど（アプリを えらびます）</small></button>
+      <div class="share-main">
+        <button type="button" data-sh="save" id="share-save" class="sh-save">📥 がぞうを ほぞん</button>
+        <button type="button" data-sh="copy" class="sh-copy">📋 がぞうを コピー</button>
+        <button type="button" data-sh="text" class="sh-copy">📝 ほんぶんを コピー</button>
+        <button type="button" data-sh="url" class="sh-copy">🔗 URLを コピー</button>
+      </div>
+      <p class="share-note" id="share-note" aria-live="polite"></p>
+      <p class="share-credit">企画・原案 ちはや <a href="https://x.com/chihaya_369" target="_blank" rel="noopener">𝕏 @chihaya_369</a></p>
+    </div>
+  </div>
+  <div class="urawaza" id="urawaza" hidden aria-live="polite"><b>🐾 うらわざ モード 🐾</b><small>ぜんぶ ひらいたよ！</small></div>
+  <div class="jarashi" id="jarashi" aria-hidden="true"><svg viewBox="-30 -120 60 130" width="60" height="130"><path d="M0 8 Q-6 -40 2 -84" fill="none" stroke="#1b1d4d" stroke-width="8" stroke-linecap="round"/><path d="M0 8 Q-6 -40 2 -84" fill="none" stroke="#8bd18b" stroke-width="4" stroke-linecap="round"/><g stroke="#1b1d4d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="2" cy="-100" rx="9" ry="19" fill="#d8f0b8"/><path d="M-4 -116 L-9 -126 M2 -119 L2 -130 M8 -116 L13 -126" fill="none"/></g><g fill="#ffb3d6" opacity=".9"><circle cx="-1" cy="-104" r="2"/><circle cx="5" cy="-96" r="2"/><circle cx="1" cy="-90" r="2"/></g></svg></div>
+  <div class="modal secret" id="secret" role="dialog" aria-modal="true" aria-label="うらわざ" hidden>
+    <div class="modal-card secret-card">
+      <p class="secret-title">🐾 ひみつの コマンド 🐾</p>
+      <div class="secret-dots" id="secret-dots"></div>
+      <div class="secret-pad">
+        <div class="dpad"><button type="button" data-sk="up" class="up">▲</button><button type="button" data-sk="left" class="left">◀</button><button type="button" data-sk="right" class="right">▶</button><button type="button" data-sk="down" class="down">▼</button></div>
+        <div class="ab"><button type="button" data-sk="b">B</button><button type="button" data-sk="a">A</button></div>
+      </div>
+      <button type="button" class="sub-btn" id="secret-close">とじる</button>
+    </div>
+  </div>
+  <div class="rotate" id="rotate" aria-live="polite"><div><p class="rot-cat">🐱🐈‍⬛</p><p>スマホを たてに してね</p></div></div>
+
+  <!-- Settings (above #app, below particles and actors) -->
+  <div class="modal" id="settings" role="dialog" aria-modal="true" aria-labelledby="settings-title" hidden>
+    <div class="modal-card">
+      <h2 id="settings-title" class="chip">せってい</h2>
+      <div class="set-row">
+        <span class="set-label">なまえ</span>
+        <div class="name-row"><input id="name-set" class="name-input" type="text" maxlength="10" autocomplete="off" spellcheck="false" placeholder="なまえ" aria-label="なまえ"><button type="button" class="sub-btn" id="name-save">へんこう</button></div>
+        <p class="set-note">けっかの がぞうに でるよ。この たんまつの なかだけに ほぞんされます</p>
+      </div>
+      <div class="set-row">
+        <span class="set-label">問題の数</span>
+        <div class="pick" role="radiogroup" aria-label="問題数">
+          <button type="button" role="radio" data-count="6" aria-checked="false">6<small>問</small></button>
+          <button type="button" role="radio" data-count="10" aria-checked="true">10<small>問</small></button>
+          <button type="button" role="radio" data-count="14" aria-checked="false">14<small>問</small></button>
+        </div>
+      </div>
+      <div class="set-row">
+        <span class="set-label">音</span>
+        <div class="set-inline">
+          <button type="button" class="toggle" data-toggle="sound" aria-pressed="true"><i aria-hidden="true">♪</i><b>オン</b></button>
+          <input type="range" class="slider" id="volume" min="0" max="100" step="1" value="80" aria-label="音の大きさ">
+        </div>
+      </div>
+      <div class="set-row" hidden>
+        <span class="set-label">にゅうりょく</span>
+        <div class="ipick" role="radiogroup" aria-label="にゅうりょく"><button type="button" data-input="roma" aria-pressed="true">⌨ ローマ字</button><button type="button" data-input="flick" aria-pressed="false">📱 フリック</button></div>
+        <p class="set-note">ローマ字は キーボードでも 画面の キーでも うてるよ。キーボードを つなぐと じどうで ローマ字に なるよ</p>
+      </div>
+      <div class="set-row">
+        <span class="set-label">ぶるぶる</span>
+        <button type="button" class="toggle" data-toggle="vib" aria-pressed="true"><i aria-hidden="true">📳</i><b>オン</b></button>
+        <p class="set-note">うつたびに スマホが ふるえるよ（Android など たいおう たんまつ のみ）</p>
+      </div>
+      <div class="set-row">
+        <span class="set-label">よみあげ</span>
+        <button type="button" class="toggle" data-toggle="speak" aria-pressed="false"><i aria-hidden="true">🗣</i><b>オフ</b></button>
+        <p class="set-note" id="speak-note">もんだいを こえで よみあげるよ（こえは たんまつに よります）</p>
+      </div>
+      <div class="set-row">
+        <span class="set-label">動きの強さ <b id="motion-val">100%</b></span>
+        <input type="range" class="slider motion" id="motion" min="0" max="100" step="1" value="100" aria-label="動きの強さ" aria-describedby="motion-note">
+        <p class="set-note" id="motion-note">0%で揺れ・光・紙吹雪・移動を止めます</p>
+      </div>
+      <div class="set-row">
+        <span class="set-label">デモプレイ</span>
+        <button type="button" class="sub-btn demo-btn" id="demo-play">▶ 自動でプレイを見る</button>
+        <p class="set-note">画面をタップするか、キーを押すと終わります（記録には残りません）</p>
+      </div>
+      <div class="set-row">
+        <span class="set-label">データ</span>
+        <button type="button" class="sub-btn danger reset-btn" id="reset-data" aria-describedby="reset-note">すべて リセット</button>
+        <p class="set-note" id="reset-note">すべての データを けして さいしょに もどします</p>
+      </div>
+      <button type="button" class="big-btn" id="close-settings">とじる</button>
+    </div>
+  </div>
+
+  <div class="modal" id="bonus" role="dialog" aria-modal="true" aria-labelledby="bonus-title" hidden>
+    <div class="modal-card bonus-card">
+      <h2 id="bonus-title" class="chip">ログインボーナス</h2>
+      <p class="bonus-run" id="bonus-run"></p>
+      <div class="bonus-card-grid" id="bonus-grid"></div>
+      <p class="bonus-note" id="bonus-note"></p>
+      <button type="button" class="big-btn" id="bonus-ok">もらう</button>
+    </div>
+  </div>
+
+  <div class="modal" id="skill-info" role="dialog" aria-modal="true" aria-labelledby="si-title" hidden>
+    <div class="modal-card si-card">
+      <p class="si-grade" id="si-grade"></p>
+      <h2 class="si-title" id="si-title"></h2>
+      <p class="si-stars" id="si-stars"></p>
+      <div class="si-next" id="si-next"></div>
+      <p class="si-note" id="si-note"></p>
+      <div class="confirm-actions">
+        <button type="button" class="sub-btn" id="si-close">とじる</button>
+        <button type="button" class="sub-btn si-go" id="si-go">れんしゅう する</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="trophy-got" role="dialog" aria-modal="true" aria-labelledby="tg-title" hidden>
+    <div class="modal-card trophy-card">
+      <h2 id="tg-title" class="chip">トロフィー ゲット！</h2>
+      <p class="tg-sub" id="tg-sub"></p>
+      <ul class="tg-list" id="tg-list"></ul>
+      <button type="button" class="big-btn" id="tg-ok">やったね！</button>
+    </div>
+  </div>
+
+  <div class="modal" id="hammer" role="dialog" aria-modal="true" aria-labelledby="hammer-title" aria-describedby="hammer-msg" hidden>
+    <div class="modal-card hammer-card">
+      <h2 id="hammer-title" class="chip">ノーカンハンマー</h2>
+      <div class="hammer-art" id="hammer-art" aria-hidden="true"></div>
+      <p class="hammer-msg" id="hammer-msg"></p>
+      <p class="hammer-have" id="hammer-have"></p>
+      <div class="confirm-actions">
+        <button type="button" class="sub-btn" id="hammer-no">つかわない</button>
+        <button type="button" class="sub-btn hammer-yes" id="hammer-yes">つかう</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="confirm" role="alertdialog" aria-modal="true" aria-labelledby="confirm-title" aria-describedby="confirm-msg" hidden>
+    <div class="modal-card confirm-card">
+      <h2 id="confirm-title" class="chip">スキルを けす</h2>
+      <p class="confirm-msg" id="confirm-msg"></p>
+      <ul class="confirm-list" id="confirm-list"></ul>
+      <div class="confirm-actions">
+        <button type="button" class="sub-btn" id="confirm-no">やめる</button>
+        <button type="button" class="sub-btn danger" id="confirm-yes">けす</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="day-log" role="dialog" aria-modal="true" aria-labelledby="day-title" hidden>
+    <div class="modal-card">
+      <h2 id="day-title" class="chip">きろく</h2>
+      <ul class="day-list" id="day-list"></ul>
+      <button type="button" class="big-btn" id="close-day">とじる</button>
+    </div>
+  </div>
+
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <svg id="actors" aria-hidden="true"><g id="actors-back"></g><g id="actors-front"></g></svg>
+  <div id="cutins" aria-hidden="true"></div>
+  <div id="flash" aria-hidden="true"></div>
+  <noscript>このゲームの操作にはJavaScriptが必要です。</noscript>
+</body>
+</html>

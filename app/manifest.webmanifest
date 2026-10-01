@@ -1,0 +1,32 @@
+{
+ "name": "ドパにゃん！ 脳汁タイピング",
+ "short_name": "脳汁タイピング",
+ "description": "打つたびにねこがキーを踏んで曲が鳴るタイピングゲーム",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "orientation": "portrait",
+ "background_color": "#fff6e8",
+ "theme_color": "#ff7ab6",
+ "lang": "ja",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ]
+}
