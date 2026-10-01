@@ -1,0 +1,58 @@
+MIT License
+
+Copyright (c) 2026 gear_machine
+Copyright (c) 2026 chihaya (modifications: ドパにゃん！脳汁タイピング)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+--------------------------------------------------------------------------------
+
+Exceptions to the MIT License
+
+1. Character and logo (non-commercial fan works permitted)
+
+   The MIT License above does NOT apply to the mascot character "Dopakichi"
+   (ドパキチ) or to the "Dopa Drill" (ドパドリル) name and logo, including their
+   designs, shapes and likenesses as drawn in app/js/dopakichi.js,
+   docs/dopakichi.svg, app/icon.svg and the logo in app/index.html
+   (the "Characters"). Copyright (c) 2026 gear_machine.
+
+   You may, without asking, use the Characters for non-commercial purposes,
+   including fan art, fan fiction, illustrations, animations, videos, social
+   media posts, and non-commercial forks or modified versions of this game.
+
+   The following are not permitted without prior permission:
+   - commercial use, such as selling goods, artworks or products featuring
+     the Characters, or using them in paid products, services or advertising;
+   - using the Characters as the name, mascot or branding of another product
+     or service, or presenting your work as official;
+   - uses that are offensive, defamatory, or that harm the reputation of the
+     Characters or of this project.
+
+   Gameplay videos and live streams of this game are permitted, including on
+   platforms where the creator receives advertising or tipping revenue.
+
+   When a fan work or fork is published, please make clear that it is
+   unofficial. A Japanese summary of these terms is in README.md; if the two
+   differ, this English text prevails.
+
+2. Fonts
+
+   The fonts in app/fonts/ (Dela Gothic One, Zen Maru Gothic) are licensed under
+   the SIL Open Font License 1.1. See the OFL-*.txt files in that directory.
